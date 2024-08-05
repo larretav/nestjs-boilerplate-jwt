@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  technical-tests-app:
+    depends_on:
+      - postgres-db
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    image: technical-tests-docker
+    container_name: technical-test-app
+    restart: always # reiniciar el contenedor si se detiene
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      DB_NAME: ${DB_NAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PORT: ${DB_PORT}
+      DB_HOST: ${DB_HOST}
+      PORT: ${PORT}
+
+  postgres-db:
+    image: postgres:15.3
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    container_name: nest-techincal-tests-db
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    ports:
+      - "${DB_PORT}:5432"
