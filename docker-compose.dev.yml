@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-    container_name: nest-techincal-tests-db
+    container_name: nest-boilerplate-jwt-db
     volumes:
       - ./postgres:/var/lib/postgresql/data
     ports:

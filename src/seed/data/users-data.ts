@@ -8,7 +8,6 @@ export const usersDataTest: CreateUserDto[] = [
     userName: "larretav",
     password: "123Tamarindo",
     role: "admin",
-    contacts: []
   },
   {
     firstName: "Fher",
@@ -17,7 +16,6 @@ export const usersDataTest: CreateUserDto[] = [
     userName: "fherval",
     password: "fherval123",
     role: "admin",
-    contacts: []
   },
   {
     firstName: "Jorge",
@@ -26,6 +24,5 @@ export const usersDataTest: CreateUserDto[] = [
     userName: "jfrausto",
     password: "jfrausto123",
     role: "admin",
-    contacts: []
   },
 ] 
